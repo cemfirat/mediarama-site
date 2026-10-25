@@ -1,0 +1,19 @@
+name: Mediarama Site CI
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate site README
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate repository README
+        run: python3 scripts/validate_readme.py
